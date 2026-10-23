@@ -1,7 +1,7 @@
 {
   "name": "project-frontend",
   "version": "0.0.1",
-  "description": "Project Ionic Frontend (placeholder)",
+  "description": "Educational olive mill sensor scenario planning demo",
   "private": true,
   "scripts": {
     "start": "echo 'Ionic dev server not configured yet'",

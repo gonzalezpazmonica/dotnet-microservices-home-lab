@@ -1,21 +1,188 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #f5f5f5; }
-        .container { text-align: center; padding: 2rem; }
-        h1 { color: #3880ff; }
-        p { color: #666; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f3">
+    <meta name="description" content="Demostración educativa para explorar escenarios de inversión en sensórica para almazaras.">
+    <title>Almazara · Planificador de escenarios</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Project</h1>
-        <p>Frontend Ionic en desarrollo</p>
-        <p>API: <a href="/api/auth/login">/api/auth/login</a></p>
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Navegación principal">
+            <a class="brand" href="#inicio" aria-label="Almazara, inicio">
+                <span class="brand-mark" aria-hidden="true">A</span>
+                <span><strong>almazara</strong><small>PLANIFICADOR</small></span>
+            </a>
+            <div class="workspace-label">ESPACIO DE TRABAJO</div>
+            <div class="workspace-switcher">
+                <span class="workspace-icon" aria-hidden="true">L</span>
+                <span><strong>Cooperativa de Lucena</strong><small>Espacio de demostración</small></span>
+                <span class="chevron" aria-hidden="true">⌄</span>
+            </div>
+            <nav class="navigation">
+                <a class="nav-link active" href="#resumen" aria-current="page"><span aria-hidden="true">◫</span> Resumen</a>
+                <a class="nav-link" href="#indicadores"><span aria-hidden="true">◉</span> Indicadores KPI</a>
+                <a class="nav-link" href="#sensores"><span aria-hidden="true">⌁</span> Sensores</a>
+                <a class="nav-link" href="#escenario"><span aria-hidden="true">◇</span> Escenarios</a>
+            </nav>
+            <div class="sidebar-note">
+                <span class="note-icon" aria-hidden="true">i</span>
+                <p><strong>Entorno de prueba</strong><br>Los cambios de este escenario solo viven en esta sesión.</p>
+            </div>
+            <div class="profile">
+                <span class="avatar" aria-hidden="true">DL</span>
+                <span><strong>Demo Lucena</strong><small>Vista de presentación</small></span>
+                <span class="profile-menu" aria-hidden="true">···</span>
+            </div>
+        </aside>
+
+        <main id="inicio" class="main-content">
+            <header class="topbar">
+                <div class="breadcrumbs">Espacios de trabajo <span>/</span> <strong>Cooperativa de Lucena</strong></div>
+                <div class="topbar-actions">
+                    <span class="demo-badge"><span aria-hidden="true"></span> DEMOSTRACIÓN</span>
+                    <button class="icon-button" type="button" aria-label="Ayuda">?</button>
+                    <span class="avatar top-avatar" aria-label="Perfil Demo Lucena">DL</span>
+                </div>
+            </header>
+
+            <div class="page">
+                <section class="welcome" id="resumen">
+                    <div>
+                        <p class="eyebrow">PLANIFICACIÓN · CAMPAÑA 2026</p>
+                        <h1>Buenos días, equipo <span aria-hidden="true">☀</span></h1>
+                        <p class="welcome-copy">Explora qué indicadores podrían habilitarse al estudiar la reparación o instalación de sensores.</p>
+                    </div>
+                    <button class="button button-secondary" type="button" id="reset-scenario"><span aria-hidden="true">↺</span> Restablecer escenario</button>
+                </section>
+
+                <div class="disclaimer" role="note">
+                    <span class="disclaimer-icon" aria-hidden="true">!</span>
+                    <p><strong>Planificador educativo, no sistema industrial.</strong> Los datos son una demostración: no hay telemetría real, control de maquinaria ni ahorros garantizados. Los cambios no se guardan.</p>
+                    <button class="dismiss-button" type="button" aria-label="Ocultar aviso" id="dismiss-disclaimer">×</button>
+                </div>
+
+                <section class="metrics-grid" aria-label="Resumen de sensores">
+                    <article class="metric-card">
+                        <div class="metric-top"><span>Total de sensores</span><span class="metric-icon olive" aria-hidden="true">⌁</span></div>
+                        <div class="metric-value">29 <span>sensores</span></div>
+                        <div class="metric-foot">Inventario del escenario de muestra</div>
+                    </article>
+                    <article class="metric-card">
+                        <div class="metric-top"><span>En funcionamiento</span><span class="status-dot alive" aria-hidden="true"></span></div>
+                        <div class="metric-value">6 <span>ALIVE</span></div>
+                        <div class="metric-foot"><span class="text-alive">20,7 %</span> del inventario</div>
+                    </article>
+                    <article class="metric-card">
+                        <div class="metric-top"><span>Averiados</span><span class="status-dot dead" aria-hidden="true"></span></div>
+                        <div class="metric-value">17 <span>DEAD</span></div>
+                        <div class="metric-foot"><span class="text-dead">58,6 %</span> del inventario</div>
+                    </article>
+                    <article class="metric-card">
+                        <div class="metric-top"><span>Por instalar</span><span class="status-dot absent" aria-hidden="true"></span></div>
+                        <div class="metric-value">6 <span>ABSENT</span></div>
+                        <div class="metric-foot">Estado inicial declarado</div>
+                    </article>
+                </section>
+
+                <div class="content-grid">
+                    <section class="panel scenario-panel" id="escenario">
+                        <div class="panel-heading">
+                            <div>
+                                <p class="eyebrow">SIMULADOR DE ESCENARIOS</p>
+                                <h2>¿Y si reparamos estos sensores?</h2>
+                                <p class="panel-subtitle">Prueba el caso documentado de eficiencia energética.</p>
+                            </div>
+                            <span class="scenario-tag">ESCENARIO A · SIN GUARDAR</span>
+                        </div>
+
+                        <div class="kpi-feature">
+                            <div class="kpi-symbol" aria-hidden="true">⚡</div>
+                            <div class="kpi-description">
+                                <span class="kpi-code">K3 · EFICIENCIA ENERGÉTICA ESPECÍFICA</span>
+                                <h3>Indicador condicionado a 3 sensores</h3>
+                                <p>Solo se considera disponible cuando S4, S16 y S17 están activos en el escenario.</p>
+                            </div>
+                            <div class="kpi-state" id="kpi-state" aria-live="polite">
+                                <span class="state-pill locked"><span aria-hidden="true">⌑</span> Bloqueado</span>
+                            </div>
+                        </div>
+
+                        <div class="sensor-list" aria-label="Sensores requeridos por K3">
+                            <div class="sensor-row fixed-sensor">
+                                <span class="sensor-check checked" aria-hidden="true">✓</span>
+                                <span class="sensor-id">S4</span>
+                                <span class="sensor-name">Consumo Eléctrico General</span>
+                                <span class="sensor-state"><span class="status-dot alive"></span> ALIVE</span>
+                                <span class="fixed-label">Estado inicial</span>
+                            </div>
+                            <label class="sensor-row interactive-sensor" for="sensor-s16">
+                                <input class="sensor-check-input" type="checkbox" id="sensor-s16">
+                                <span class="sensor-check" aria-hidden="true"></span>
+                                <span class="sensor-id">S16</span>
+                                <span class="sensor-name">Consumo Batidora 1</span>
+                                <span class="sensor-state"><span class="status-dot dead" id="dot-s16"></span><span id="label-s16">DEAD</span></span>
+                                <span class="repair-label">Simular reparación</span>
+                            </label>
+                            <label class="sensor-row interactive-sensor" for="sensor-s17">
+                                <input class="sensor-check-input" type="checkbox" id="sensor-s17">
+                                <span class="sensor-check" aria-hidden="true"></span>
+                                <span class="sensor-id">S17</span>
+                                <span class="sensor-name">Consumo Decanter 1</span>
+                                <span class="sensor-state"><span class="status-dot dead" id="dot-s17"></span><span id="label-s17">DEAD</span></span>
+                                <span class="repair-label">Simular reparación</span>
+                            </label>
+                        </div>
+
+                        <div class="scenario-result" id="scenario-result" aria-live="polite">
+                            <span class="result-icon" aria-hidden="true">↗</span>
+                            <p>Activa S16 y S17 para explorar el desbloqueo de K3. Esto no cambia el estado de ningún equipo real.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div><span class="benefit-label">BENEFICIO POTENCIAL PREDEFINIDO</span><strong>24.000 <small>€/año</small></strong></div>
+                            <span class="benefit-disclaimer">Estimación ilustrativa<br>no observada ni garantizada</span>
+                        </div>
+                    </section>
+
+                    <aside class="side-column">
+                        <section class="panel indicators-panel" id="indicadores">
+                            <div class="panel-heading compact-heading">
+                                <div><p class="eyebrow">VISTA GENERAL</p><h2>Indicadores KPI</h2></div>
+                                <span class="count-badge">7</span>
+                            </div>
+                            <div class="indicator-list">
+                                <div class="indicator-item"><span class="indicator-icon">◌</span><span>Extracción</span><span class="pending">Datos pendientes</span></div>
+                                <div class="indicator-item"><span class="indicator-icon">◌</span><span>Pérdida de aceite en orujo</span><span class="pending">Datos pendientes</span></div>
+                                <div class="indicator-item selected"><span class="indicator-icon energy">ϟ</span><span>Eficiencia energética</span><span class="k3-mini-state" id="k3-mini-state">Bloqueado</span></div>
+                                <div class="indicator-item"><span class="indicator-icon">◌</span><span>Calidad del aceite</span><span class="pending">Datos pendientes</span></div>
+                                <div class="indicator-item"><span class="indicator-icon">◌</span><span>Estabilidad del decanter</span><span class="pending">Datos pendientes</span></div>
+                                <div class="indicator-item"><span class="indicator-icon">◌</span><span>Balance hidráulico y de masas</span><span class="pending">Datos pendientes</span></div>
+                                <div class="indicator-item"><span class="indicator-icon">◌</span><span>Conservación en bodega</span><span class="pending">Datos pendientes</span></div>
+                            </div>
+                            <p class="panel-footnote">Solo K3 tiene requisitos y beneficio detallados en esta demo.</p>
+                        </section>
+
+                        <section class="panel investment-panel" id="sensores">
+                            <div class="investment-icon" aria-hidden="true">◎</div>
+                            <div>
+                                <p class="eyebrow">SIGUIENTE PASO</p>
+                                <h2>Completar el inventario</h2>
+                                <p>Faltan costes y dependencias validados para calcular una ruta de inversión responsable.</p>
+                            </div>
+                            <div class="data-status"><span></span> Ruta de inversión no disponible</div>
+                        </section>
+                    </aside>
+                </div>
+
+                <footer class="page-footer">
+                    <span>DEMO EDUCATIVA · DATOS DE ESCENARIO</span>
+                    <span>Revisar supuestos con personal técnico antes de decidir inversiones.</span>
+                </footer>
+            </div>
+        </main>
     </div>
+    <script src="/app.js" defer></script>
 </body>
 </html>

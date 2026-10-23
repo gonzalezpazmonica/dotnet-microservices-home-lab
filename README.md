@@ -1,6 +1,4 @@
-# Project Template - .NET 10 Cloud-Native Architecture
-
-Plantilla de arquitectura empresarial cloud-native lista para produccion. Diseñada para servir como scaffolding de nuevos proyectos: renombra `Project` por el nombre de tu dominio, configura tus secretos y empieza a desarrollar logica de negocio.
+# Project Template - 
 
 ### Despliegue automatizado con Claude Code
 
@@ -45,7 +43,7 @@ Tambien puedes pedirle **"Verifica la infraestructura"** para comprobar el estad
 | Calidad | SonarQube | - |
 | Seguridad | Trivy | - |
 | Registro | Harbor | - |
-| Frontend | Ionic/Angular + Nginx (4 replicas) | - |
+| Frontend | HTML, CSS y JavaScript + Nginx (demo) | - |
 
 ---
 
@@ -171,6 +169,12 @@ Project.slnx
 ├── README_PIPELINE.md                  # Pipeline CI/CD en Jenkins + integracion GitLab
 └── .vscode/                            # Debug con Edge + HTTPS
 ```
+
+### Demostración web de planificación sensórica
+
+El frontend ofrece una demostración interactiva para conversar sobre escenarios de reparación de sensores en una almazara. Parte de los totales de muestra (29 sensores: 6 ALIVE, 17 DEAD y 6 ABSENT) y permite simular la reparación de S16 y S17 para explorar el desbloqueo del KPI K3, que también requiere S4.
+
+El beneficio de 24.000 €/año es un valor potencial predefinido, no un ahorro medido ni garantizado. Los cambios solo viven en la sesión del navegador; el frontend no tiene inicio de sesión, persistencia, aislamiento entre cooperativas, telemetría ni control de maquinaria. Los requisitos y costes del resto de sensores y KPI no están completos, por lo que no se presenta una ruta de inversión. No debe usarse como recomendación de compra o sistema industrial.
 
 ---
 
